@@ -1,4 +1,4 @@
-# CPU Architecture Deep Dive - Hardware Security Learning
+# CPU Architecture Deep Dive - Hardware Security Learning, Notes from Patterson & Hennessy readings
 
 ## 🎯 Learning Objectives
 - [ ] Understand CPU pipeline architecture and security implications
