@@ -1,125 +1,114 @@
-# CPU Architecture Deep Dive - Hardware Security Learning, Notes from Patterson & Hennessy readings
+# Hardware Security Foundations - Core Concepts
 
-## 🎯 Learning Objectives
-- [ ] Understand CPU pipeline architecture and security implications
-- [ ] Learn memory management and protection mechanisms
-- [ ] Analyze major CPU vulnerabilities (Spectre, Meltdown, etc.)
-- [ ] Implement basic CPU security monitoring tools
-- [ ] Connect CPU security to broader hardware security landscape
+## Overview
+This section establishes the fundamental knowledge base for understanding hardware security. It covers essential computer architecture concepts that underpin all hardware security analysis and serves as the foundation for advanced topics.
 
-## 📚 Study Plan
-### Week 1: CPU Fundamentals (Sep 27 - Oct 3)
-- [ ] **Day 1-2**: CPU architecture basics, instruction pipelines
-- [ ] **Day 3-4**: Memory hierarchy, cache systems, virtual memory
-- [ ] **Day 5-6**: CPU security mechanisms (SMEP, SMAP, etc.)
-- [ ] **Day 7**: Integration project - CPU security analyzer
+## Learning Objectives
+- [ ] Master CPU architecture and instruction processing
+- [ ] Understand memory hierarchy and management systems
+- [ ] Learn instruction pipeline design and hazards
+- [ ] Analyze cache systems and their security implications
+- [ ] Build practical knowledge through hands-on projects
+- [ ] Connect hardware concepts to security vulnerabilities
 
-### Week 2: Advanced Security (Oct 4-10)
-- [ ] **Day 1-2**: Speculative execution vulnerabilities
-- [ ] **Day 3-4**: Side-channel attacks (cache timing, branch prediction)
-- [ ] **Day 5-6**: Hardware countermeasures and mitigations
-- [ ] **Day 7**: Complete CPU security assessment tool
+## Subsections
 
-## 📝 Key Concepts Learned
-*Update this as you learn*
+### cpu-deep-dive/
+Comprehensive study of CPU architecture from a security perspective
+- Instruction set architecture and execution models
+- Pipeline stages and hazard analysis
+- Branch prediction and speculative execution
+- Register files and execution units
+- Connection to vulnerabilities like Spectre/Meltdown
 
-### CPU Pipeline Architecture
-- **Definition**: Multi-stage instruction processing system
-- **Security implications**: Pipeline hazards can leak information
-- **Stages**: Fetch → Decode → Execute → Memory → Writeback
-- **Vulnerabilities**: Speculative execution side-channels
+### memory-management/
+Memory systems and protection mechanisms
+- Virtual memory and address translation
+- Memory Management Unit (MMU) operation
+- Page tables and translation lookaside buffers
+- Memory protection mechanisms (SMEP, SMAP)
+- Buffer overflow protection and stack canaries
 
-### Memory Protection Mechanisms
-- **Virtual Memory**: Isolation between processes
-- **SMEP (Supervisor Mode Execution Prevention)**: Prevents kernel from executing user code
-- **SMAP (Supervisor Mode Access Prevention)**: Prevents kernel from accessing user data
-- **ASLR (Address Space Layout Randomization)**: Makes memory layout unpredictable
+### instruction-pipelines/
+Deep dive into instruction execution and pipeline security
+- Pipeline stages: fetch, decode, execute, memory, writeback
+- Pipeline hazards: structural, data, and control
+- Out-of-order execution and register renaming
+- Pipeline security implications and timing attacks
+- Performance vs security trade-offs
 
-### Major CPU Vulnerabilities
-- **Spectre**: Exploits speculative execution to read privileged memory
-- **Meltdown**: Breaks isolation between user applications and OS
-- **Rowhammer**: DRAM bit-flipping attack affecting CPU-memory interaction
+### cache-systems/
+Cache hierarchy analysis and security considerations
+- Cache organization: direct-mapped, set-associative, fully-associative
+- Cache coherence protocols in multi-core systems
+- Cache replacement policies and their security implications
+- Cache-based side-channel attacks
+- Cache partitioning and isolation techniques
 
-## 🛠️ Practical Projects
+## Learning Progression
+This section follows a structured learning path:
 
-### Project 1: CPU Architecture Visualizer
-- **Objective**: Build tool to visualize CPU pipeline stages
-- **Implementation**: `./code/cpu-visualizer/`
-- **Status**: 🚧 In Progress
-- **Skills**: Python, system programming, visualization
+1. **Week 1**: CPU fundamentals and basic architecture
+2. **Week 2**: Memory systems and protection mechanisms  
+3. **Week 3**: Pipeline analysis and instruction execution
+4. **Week 4**: Cache systems and performance analysis
 
-### Project 2: CPU Vulnerability Scanner
-- **Objective**: Detect CPU vulnerabilities in current system
-- **Implementation**: `./code/vulnerability-scanner/`
-- **Status**: ⏳ Planned
-- **Skills**: System calls, hardware queries, security analysis
+## Practical Components
+Each subsection includes:
+- Theoretical study materials and notes
+- Hands-on simulation and analysis tools
+- Security-focused exercises and assessments
+- Connection to real-world vulnerabilities
+- Implementation projects demonstrating concepts
 
-### Project 3: Performance Counter Monitor
-- **Objective**: Monitor CPU performance counters for security anomalies
-- **Implementation**: `./code/perf-monitor/`
-- **Status**: ⏳ Planned
-- **Skills**: Hardware performance monitoring, anomaly detection
+## Integration with Advanced Topics
+Foundations knowledge directly enables:
+- **Vulnerability Analysis**: Understanding how attacks exploit hardware features
+- **Security Mechanisms**: Knowing what hardware features can provide protection
+- **GPU Security**: Transferring concepts to parallel processing architectures
+- **Research Applications**: Building thesis-relevant expertise
 
-## 🔗 Connections to Other Topics
-- **Related to**: Memory security, cache attacks, GPU security
-- **Prerequisites**: Basic computer science, systems programming
-- **Leads to**: GPU architecture, hardware virtualization, trusted computing
+## Success Metrics
+By completing this section, you should be able to:
+- [ ] Explain CPU architecture to both technical and non-technical audiences
+- [ ] Analyze how hardware design decisions impact security
+- [ ] Identify potential vulnerability classes in hardware systems
+- [ ] Design basic security monitoring and analysis tools
+- [ ] Connect hardware concepts to higher-level security problems
 
-## 📊 Self-Assessment
-*Rate your understanding: 1-10*
-- CPU pipeline understanding: __/10
-- Memory protection mechanisms: __/10
-- Vulnerability analysis: __/10
-- Practical implementation: __/10
-- Security implications: __/10
-
-## 🔍 Questions for Further Research
-- [ ] How do modern CPUs implement speculative execution safely?
-- [ ] What are the performance trade-offs of various security mitigations?
-- [ ] How can machine learning help detect CPU-based attacks?
-- [ ] What role do CPU security features play in cloud computing?
-
-## 📚 Resources
-
-### Essential Reading
-- **Patterson & Hennessy**: Computer Organization and Design (Chapters 1-4)
-- **Intel Architecture Manual**: Volume 3 (System Programming Guide)
-- **Spectre Paper**: "Spectre Attacks: Exploiting Speculative Execution"
-- **Meltdown Paper**: "Meltdown: Reading Kernel Memory from User Space"
-
-### Video Learning
-- **Computerphile**: CPU architecture and security videos
-- **Ben Eater**: "How do CPUs work?" series
-- **LiveOverflow**: Hardware security fundamentals
-
-### Online Resources
-- **Intel Developer Zone**: CPU security documentation
-- **ARM Developer**: ARM architecture security guides
-- **CVE Database**: Recent CPU vulnerability reports
-
-### Tools Used
-- **gem5**: CPU simulator for architecture study
+## Tools and Simulators Used
+- **gem5**: Full-system simulator for architecture analysis
 - **Intel Pin**: Dynamic binary instrumentation framework
-- **perf**: Linux performance monitoring tools
-- **Ghidra**: Reverse engineering for CPU instruction analysis
+- **SimpleScalar**: Educational CPU simulator
+- **Cachegrind**: Cache profiling and analysis tool
+- **Custom scripts**: Python tools for data analysis and visualization
 
-## 📅 Learning Timeline
-- **Started**: September 27, 2025
-- **Key milestones**: 
-  - [ ] Sep 30 - Complete CPU architecture fundamentals
-  - [ ] Oct 3 - Build first CPU security tool
-  - [ ] Oct 7 - Understand major vulnerabilities
-  - [ ] Oct 10 - Complete comprehensive CPU security project
-- **Target completion**: October 10, 2025
+## Real-world Connections
+All learning connects to practical security concerns:
+- Data center security and multi-tenant isolation
+- Mobile device security architectures
+- IoT security constraints and trade-offs
+- Cloud computing security guarantees
+- Cryptocurrency and blockchain security foundations
 
-## 🎯 Success Criteria
-By the end of this module, I should be able to:
-- [ ] Explain CPU pipeline security implications to a technical audience
-- [ ] Identify and analyze CPU vulnerabilities in real systems
-- [ ] Build tools that monitor CPU security events
-- [ ] Integrate CPU security knowledge with other hardware security topics
-- [ ] Apply this knowledge to my thesis research on GPU-accelerated security
+## Timeline and Milestones
+- **Target Duration**: 4-6 weeks (September 27 - November 1)
+- **Key Milestone 1**: CPU architecture mastery (Week 2)
+- **Key Milestone 2**: Memory security understanding (Week 4)
+- **Key Milestone 3**: Complete security analysis project (Week 6)
+- **Final Assessment**: Comprehensive hardware security foundation
+
+## Prerequisites
+- Basic computer science knowledge
+- Programming experience (Python, C/C++)
+- Mathematical foundations (boolean algebra, basic statistics)
+- Willingness to engage with low-level technical concepts
+
+## Next Steps
+After completing foundations:
+- Progress to vulnerability analysis (section 02)
+- Begin practical security mechanism study (section 03)
+- Start building security analysis tools (section 05)
+- Connect knowledge to GPU security specialization (section 04)
 
 ---
-*Last updated: September 27, 2025*
-*Next review: September 30, 2025*
