@@ -187,4 +187,4 @@ This repository follows a **learn-by-doing** approach:
 
 ---
 
-*This repository represents my journey from hardware security novice to expert, documenting every step of the learning process.*
+*This repository represents my journey from hardware security novice to expert, documenting every step of the learning process!*
